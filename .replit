@@ -1,0 +1,11 @@
+modules = ["php-8.2"]
+[agent]
+integrations = ["javascript_mem_db==1.0.0"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[[ports]]
+localPort = 8000
+externalPort = 8000
