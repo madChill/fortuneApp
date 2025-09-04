@@ -24,6 +24,11 @@
         .font-serif {
             font-family: 'Crimson Text', serif;
         }
+        .bg-mystical {
+            background: url('/attached_assets/generated_images/Purple_mountain_landscape_background_807c11a3.png') center/cover no-repeat,
+                        linear-gradient(135deg, #6b46c1 0%, #ec4899 50%, #f59e0b 100%);
+            background-blend-mode: overlay;
+        }
         .bg-gradient-main {
             background: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 50%, #fef7ed 100%);
         }
@@ -34,9 +39,42 @@
             transform: translateY(-8px);
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
+        .floating-stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .floating-stars::before,
+        .floating-stars::after {
+            content: '✨';
+            position: absolute;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            animation: float 6s ease-in-out infinite;
+        }
+        .floating-stars::before {
+            top: 20%;
+            left: 10%;
+            animation-delay: -2s;
+        }
+        .floating-stars::after {
+            top: 60%;
+            right: 15%;
+            animation-delay: -4s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
+            50% { transform: translateY(-20px) rotate(10deg); opacity: 1; }
+        }
+        .mystical-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
     </style>
 </head>
-<body class="bg-gradient-main min-h-screen">
+<body class="bg-mystical min-h-screen">
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-purple-100 shadow-sm">
         <nav class="container mx-auto px-4 py-4">
@@ -85,20 +123,21 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="py-20 px-4">
-        <div class="container mx-auto text-center">
-            <h2 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+    <section class="py-20 px-4 relative overflow-hidden">
+        <div class="floating-stars"></div>
+        <div class="container mx-auto text-center relative z-10">
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl">
                 Discover Your Future
             </h2>
-            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-lg">
                 Professional Chinese fortune telling with instant analysis. Get your destiny reading, love compatibility, and yearly predictions.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#services" class="px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-bold text-lg rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300">
+                <a href="#services" class="px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-bold text-lg rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 mystical-card">
                     <i class="fas fa-sparkles mr-2"></i>
                     Start Your Reading
                 </a>
-                <a href="#about" class="px-8 py-4 border-2 border-purple-200 text-purple-700 font-semibold rounded-full hover:bg-purple-50 transition-all duration-200">
+                <a href="#about" class="px-8 py-4 mystical-card text-purple-700 font-semibold rounded-full hover:bg-white/80 transition-all duration-200">
                     Learn More
                 </a>
             </div>
@@ -119,9 +158,11 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 <!-- Zi Wei Dou Shu -->
-                <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg card-hover border border-gray-100">
-                    <div class="relative overflow-hidden rounded-t-3xl h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
-                        <i class="fas fa-yin-yang text-white text-6xl opacity-80"></i>
+                <div class="group relative overflow-hidden rounded-3xl mystical-card shadow-lg card-hover border border-purple-200">
+                    <div class="relative overflow-hidden rounded-t-3xl h-48">
+                        <img src="/attached_assets/generated_images/Anime_Zi_Wei_fortune_wheel_a4dff8a1.png" 
+                             alt="Zi Wei Dou Shu Fortune Wheel" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4">
                             <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                                 Free
@@ -146,9 +187,11 @@
                 </div>
 
                 <!-- 2025 Yearly Fortune -->
-                <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg card-hover border border-gray-100">
-                    <div class="relative overflow-hidden rounded-t-3xl h-48 bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center">
-                        <i class="fas fa-calendar-star text-white text-6xl opacity-80"></i>
+                <div class="group relative overflow-hidden rounded-3xl mystical-card shadow-lg card-hover border border-purple-200">
+                    <div class="relative overflow-hidden rounded-t-3xl h-48">
+                        <img src="/attached_assets/generated_images/Anime_fortune_teller_girl_348a2a59.png" 
+                             alt="2025 Yearly Fortune Analysis" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4">
                             <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                                 Paid
@@ -173,9 +216,11 @@
                 </div>
 
                 <!-- Love Fortune -->
-                <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg card-hover border border-gray-100">
-                    <div class="relative overflow-hidden rounded-t-3xl h-48 bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center">
-                        <i class="fas fa-heart text-white text-6xl opacity-80"></i>
+                <div class="group relative overflow-hidden rounded-3xl mystical-card shadow-lg card-hover border border-purple-200">
+                    <div class="relative overflow-hidden rounded-t-3xl h-48">
+                        <img src="/attached_assets/generated_images/Anime_couple_love_fortune_cae20115.png" 
+                             alt="2025 Love Fortune Analysis" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4">
                             <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                                 Paid
@@ -200,9 +245,11 @@
                 </div>
 
                 <!-- Bazi Fortune -->
-                <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg card-hover border border-gray-100">
-                    <div class="relative overflow-hidden rounded-t-3xl h-48 bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
-                        <i class="fas fa-user-circle text-white text-6xl opacity-80"></i>
+                <div class="group relative overflow-hidden rounded-3xl mystical-card shadow-lg card-hover border border-purple-200">
+                    <div class="relative overflow-hidden rounded-t-3xl h-48">
+                        <img src="/attached_assets/generated_images/Anime_Bazi_fortune_telling_a7d95221.png" 
+                             alt="Free Bazi Fortune Telling" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4">
                             <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                                 Free
@@ -227,9 +274,11 @@
                 </div>
 
                 <!-- Compatibility -->
-                <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg card-hover border border-gray-100">
-                    <div class="relative overflow-hidden rounded-t-3xl h-48 bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center">
-                        <i class="fas fa-heart-circle-check text-white text-6xl opacity-80"></i>
+                <div class="group relative overflow-hidden rounded-3xl mystical-card shadow-lg card-hover border border-purple-200">
+                    <div class="relative overflow-hidden rounded-t-3xl h-48">
+                        <img src="/attached_assets/generated_images/Anime_couple_love_fortune_cae20115.png" 
+                             alt="Couple Compatibility Analysis" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4">
                             <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-purple-500 to-pink-500 text-white">
                                 Paid
@@ -254,9 +303,11 @@
                 </div>
 
                 <!-- Career Divination -->
-                <div class="group relative overflow-hidden rounded-3xl bg-white shadow-lg card-hover border border-gray-100">
-                    <div class="relative overflow-hidden rounded-t-3xl h-48 bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">
-                        <i class="fas fa-briefcase text-white text-6xl opacity-80"></i>
+                <div class="group relative overflow-hidden rounded-3xl mystical-card shadow-lg card-hover border border-purple-200">
+                    <div class="relative overflow-hidden rounded-t-3xl h-48">
+                        <img src="/attached_assets/generated_images/Anime_career_fortune_girl_4e94ccac.png" 
+                             alt="Career Divination" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="absolute top-4 right-4">
                             <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-green-500 to-emerald-500 text-white">
                                 Free
