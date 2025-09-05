@@ -122,28 +122,6 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="py-20 px-4 relative overflow-hidden">
-        <div class="floating-stars"></div>
-        <div class="container mx-auto text-center relative z-10">
-            <h2 class="text-5xl md:text-6xl font-bold mb-6 text-white drop-shadow-2xl">
-                Discover Your Future
-            </h2>
-            <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto drop-shadow-lg">
-                Professional Chinese fortune telling with instant analysis. Get your destiny reading, love compatibility, and yearly predictions.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a href="#services" class="px-8 py-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-bold text-lg rounded-full shadow-2xl hover:shadow-3xl transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 mystical-card">
-                    <i class="fas fa-sparkles mr-2"></i>
-                    Start Your Reading
-                </a>
-                <a href="#about" class="px-8 py-4 mystical-card text-purple-700 font-semibold rounded-full hover:bg-white/80 transition-all duration-200">
-                    Learn More
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Featured Services Grid -->
     <section id="services" class="py-20 px-4">
         <div class="container mx-auto">
