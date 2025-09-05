@@ -25,9 +25,24 @@
             font-family: 'Crimson Text', serif;
         }
         .bg-mystical {
-            background: url('/attached_assets/generated_images/Purple_mountain_landscape_background_807c11a3.png') center/cover no-repeat,
-                        linear-gradient(135deg, #6b46c1 0%, #ec4899 50%, #f59e0b 100%);
-            background-blend-mode: overlay;
+            background: linear-gradient(135deg, rgb(109, 87, 122) 0%, rgb(151, 101, 69) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .bg-mystical::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('/attached_assets/generated_images/Purple_mountain_landscape_background_807c11a3.png') center/cover no-repeat;
+            opacity: 0.3;
+            z-index: 1;
+        }
+        .bg-mystical > * {
+            position: relative;
+            z-index: 2;
         }
         .bg-gradient-main {
             background: linear-gradient(135deg, #f5f3ff 0%, #fdf2f8 50%, #fef7ed 100%);
@@ -49,23 +64,38 @@
         .floating-stars::after {
             content: '✨';
             position: absolute;
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.9);
             animation: float 6s ease-in-out infinite;
         }
         .floating-stars::before {
-            top: 20%;
-            left: 10%;
+            top: 15%;
+            left: 8%;
             animation-delay: -2s;
         }
         .floating-stars::after {
-            top: 60%;
-            right: 15%;
+            top: 70%;
+            right: 12%;
             animation-delay: -4s;
         }
+        .star-scattered {
+            position: absolute;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            animation: twinkle 4s ease-in-out infinite;
+        }
+        .star-1 { top: 25%; left: 20%; animation-delay: -1s; }
+        .star-2 { top: 45%; right: 25%; animation-delay: -3s; }
+        .star-3 { top: 65%; left: 75%; animation-delay: -5s; }
+        .star-4 { top: 35%; left: 60%; animation-delay: -2.5s; }
+        .star-5 { top: 80%; right: 40%; animation-delay: -4.5s; }
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }
             50% { transform: translateY(-20px) rotate(10deg); opacity: 1; }
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
         }
         .mystical-card {
             background: rgba(255, 255, 255, 0.95);
@@ -121,6 +151,75 @@
             </div>
         </nav>
     </header>
+
+    <!-- Hero Banner Section -->
+    <section class="py-16 px-4 relative overflow-hidden">
+        <div class="floating-stars"></div>
+        <div class="star-scattered star-1">⭐</div>
+        <div class="star-scattered star-2">✨</div>
+        <div class="star-scattered star-3">⭐</div>
+        <div class="star-scattered star-4">✨</div>
+        <div class="star-scattered star-5">⭐</div>
+        
+        <!-- Three Featured Cards Layout -->
+        <div class="container mx-auto relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <!-- 2025 Yearly Fortune Analysis -->
+                <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="/attached_assets/generated_images/Anime_fortune_teller_girl_348a2a59.png" 
+                             alt="2025 Yearly Fortune Analysis" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-3 left-3">
+                            <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-orange-500 to-red-500 text-white">
+                                Paid online fortune-telling
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">2025 Yearly Fortune Analysis</h3>
+                        <p class="text-sm text-gray-600">Fortune for the Year of the Snake</p>
+                    </div>
+                </div>
+
+                <!-- 2025 Love Fortune Analysis -->
+                <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="/attached_assets/generated_images/Anime_couple_love_fortune_cae20115.png" 
+                             alt="2025 Love Fortune Analysis" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-3 left-3">
+                            <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-yellow-500 to-orange-500 text-white">
+                                Free online fortune-telling
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">2025 Love Fortune Analysis</h3>
+                        <p class="text-sm text-gray-600">Includes yearly love fortune prediction</p>
+                    </div>
+                </div>
+
+                <!-- Free Zi Wei Dou Shu Fortune-telling -->
+                <div class="group relative overflow-hidden rounded-2xl bg-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="/attached_assets/generated_images/Anime_Zi_Wei_fortune_wheel_a4dff8a1.png" 
+                             alt="Free Zi Wei Dou Shu Fortune-telling" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute top-3 left-3">
+                            <div class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r from-green-500 to-emerald-500 text-white">
+                                Free online fortune-telling
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">Free Zi Wei Dou Shu Fortune-telling</h3>
+                        <p class="text-sm text-gray-600">Destiny Analysis with Free Yearly</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Featured Services Grid -->
     <section id="services" class="py-20 px-4">
