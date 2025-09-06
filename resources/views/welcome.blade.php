@@ -27,7 +27,6 @@
         .bg-mystical {
             background: linear-gradient(135deg, rgb(109, 87, 122) 0%, rgb(151, 101, 69) 100%);
             position: relative;
-            overflow: hidden;
         }
         .bg-mystical::before {
             content: '';
